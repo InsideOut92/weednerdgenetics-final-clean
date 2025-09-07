@@ -1,0 +1,1 @@
+export default function Legal(){ return <div><h1 className='text-2xl font-bold'>Legal Notice</h1><p className='mt-2 text-white/80'>This is a placeholder legal notice. Please replace with your real information.</p></div> }

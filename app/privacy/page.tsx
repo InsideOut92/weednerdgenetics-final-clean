@@ -1,0 +1,1 @@
+export default function Privacy(){ return <div><h1 className='text-2xl font-bold'>Privacy Policy</h1><p className='mt-2 text-white/80'>Placeholder privacy policy. Replace with actual text.</p></div> }

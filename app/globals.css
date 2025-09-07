@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base variables (change to adjust theme) */
+:root {
+  --brand-green: #2EA043;
+  --brand-dark: #071B0C;
+  --accent-cream: #F6E7C0;
+  --nav-height: 72px;
+}
+
+/* Basic reset + layout */
+html,body,#_next { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,#050008 0%, #071B0C 60%);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+
+/* Header */
+header.site-header {
+  height: var(--nav-height);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.site-header .container { display:flex; align-items:center; justify-content:space-between; gap:16px; height:100%; }
+.logo-img { height:44px; width:auto; display:block; }
+
+/* Nav */
+.main-nav { display:flex; gap:10px; align-items:center; }
+.main-nav a { color: #e6f6e6; text-decoration:none; padding:8px 12px; border-radius:8px; font-weight:600; transition: all .12s; }
+.main-nav a:hover { transform: translateY(-2px); background: rgba(46,160,67,0.08); color: var(--accent-cream); box-shadow: 0 8px 24px rgba(46,160,67,0.06); }
+
+/* Hero */
+.hero { border-radius:12px; overflow:hidden; display:block; }
+.hero-inner { display:flex; gap:16px; align-items:center; padding:1rem; }
+.hero .logo-small { height:40px; }
+
+/* Product grid */
+.product-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; align-items:start; margin-top:8px; }
+.card { background: rgba(255,255,255,0.03); border-radius:12px; padding:1rem; border:1px solid rgba(255,255,255,0.04); box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
+.card img { width:100%; height:180px; object-fit:cover; border-radius:8px; display:block; }
+
+/* Footer */
+footer.site-footer { margin-top: 2.5rem; padding-top:1.5rem; padding-bottom:2.5rem; border-top:1px solid rgba(255,255,255,0.04); }
+.footer-note { color: rgba(255,255,255,0.65); font-size: .95rem; }
+
+/* Age gate */
+.age-overlay { position: fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.78); backdrop-filter: blur(6px); }
+.age-overlay .card { max-width:520px; text-align:center; padding:2rem; }

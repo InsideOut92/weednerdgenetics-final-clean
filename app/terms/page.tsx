@@ -1,0 +1,1 @@
+export default function Terms(){ return <div><h1 className='text-2xl font-bold'>Terms & Conditions</h1><p className='mt-2 text-white/80'>Placeholder terms. Replace with actual text.</p></div> }
