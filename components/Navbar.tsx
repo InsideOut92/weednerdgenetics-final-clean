@@ -1,22 +1,40 @@
+// components/Navbar.tsx
 "use client";
-import Link from 'next/link'
-import { useState } from 'react'
 
-export default function Navbar(){
-  const [open, setOpen] = useState(false)
+import Link from "next/link";
+import { useCart } from "@/app/context/CartContext";
+import { ShoppingCart } from "lucide-react";
+
+export default function Navbar() {
+  const { cart } = useCart();
+
   return (
-    <div style={{display:'flex', alignItems:'center', width:'100%'}}>
-      <div style={{display:'flex', alignItems:'center', gap:12}}>
-        <Link href='/'><img src="/images/logo-weednerd.png" alt="logo" className="logo-img" /></Link>
+    <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-lg">
+      {/* Logo links */}
+      <Link href="/" className="text-xl font-bold">
+        WeedNerd
+      </Link>
+
+      {/* Kategorien */}
+      <div className="space-x-6">
+        <Link href="/seeds">Seeds</Link>
+        <Link href="/category/indica">Indica</Link>
+        <Link href="/category/sativa">Sativa</Link>
+        <Link href="/category/autoflower">Autoflower</Link>
+        <Link href="/category/hybrid">Hybrid</Link>
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact</Link>
       </div>
-      <nav className="main-nav" style={{marginLeft:'auto'}}>
-        <a href="/shop">Seeds</a>
-        <a href="/shop?cat=indica">Indica</a>
-        <a href="/shop?cat=sativa">Sativa</a>
-        <a href="/shop?cat=auto">Autoflower</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </div>
-  )
+
+      {/* Warenkorb rechts */}
+      <Link href="/cart" className="relative">
+        <ShoppingCart size={28} />
+        {cart.length > 0 && (
+          <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-bold rounded-full px-2">
+            {cart.length}
+          </span>
+        )}
+      </Link>
+    </nav>
+  );
 }

@@ -59,3 +59,12 @@ footer.site-footer { margin-top: 2.5rem; padding-top:1.5rem; padding-bottom:2.5r
 /* Age gate */
 .age-overlay { position: fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.78); backdrop-filter: blur(6px); }
 .age-overlay .card { max-width:520px; text-align:center; padding:2rem; }
+
+/* buttons */
+.btn {
+  @apply px-4 py-2 rounded-lg font-semibold transition shadow;
+}
+
+.btn-green {
+  @apply bg-green-600 text-white hover:bg-green-700;
+}

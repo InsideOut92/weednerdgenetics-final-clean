@@ -1,47 +1,42 @@
-// components/ProductCard.tsx
+// app/cart/page.tsx
 "use client";
 
-import Link from "next/link";
-import { Product } from "@/data/products";
 import { useCart } from "@/app/context/CartContext";
 
-export default function ProductCard({
-  product,
-  onHover,
-}: {
-  product: Product;
-  onHover?: (enter: boolean) => void;
-}) {
-  const { addToCart } = useCart();
+export default function CartPage() {
+  const { cart, removeFromCart, clearCart } = useCart();
+
+  if (cart.length === 0) {
+    return <div className="p-8">Your cart is empty.</div>;
+  }
 
   return (
-    <div
-      className="card hover:shadow-lg transition cursor-pointer"
-      onMouseEnter={() => onHover?.(true)}
-      onMouseLeave={() => onHover?.(false)}
-    >
-      <Link href={`/product/${product.id}`}>
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-40 object-cover rounded-md"
-        />
-      </Link>
+    <div className="container mx-auto p-8 space-y-6">
+      <h1 className="text-3xl font-bold">Your Cart</h1>
+      <ul className="space-y-4">
+        {cart.map((item) => (
+          <li
+            key={item.id}
+            className="flex justify-between items-center border-b pb-2"
+          >
+            <div>
+              <h2 className="font-semibold">{item.name}</h2>
+              <p>Qty: {item.quantity}</p>
+              <p className="text-green-400">€ {item.price}</p>
+            </div>
+            <button
+              className="btn"
+              onClick={() => removeFromCart(item.id)}
+            >
+              Remove
+            </button>
+          </li>
+        ))}
+      </ul>
 
-      <div className="p-4">
-        <span className="text-sm text-gray-400">{product.category}</span>
-        <h3 className="text-lg font-semibold">{product.name}</h3>
-        <p className="text-sm text-gray-300">{product.description}</p>
-        <p className="mt-2 font-bold text-green-400">€ {product.price}</p>
-
-        {/* Add-to-cart Button */}
-        <button
-          className="btn mt-3 w-full"
-          onClick={() => addToCart(product)}
-        >
-          Add to cart
-        </button>
-      </div>
+      <button className="btn bg-red-600" onClick={clearCart}>
+        Clear Cart
+      </button>
     </div>
   );
 }
