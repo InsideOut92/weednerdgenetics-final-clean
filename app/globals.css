@@ -62,7 +62,8 @@ footer.site-footer { margin-top: 2.5rem; padding-top:1.5rem; padding-bottom:2.5r
 
 /* buttons */
 .btn {
-  @apply px-4 py-2 rounded-lg font-semibold transition shadow;
+  @apply px-4 py-2 rounded-lg font-semibold transition;
+  @apply bg-green-600 text-white hover:bg-green-700;
 }
 
 .btn-green {

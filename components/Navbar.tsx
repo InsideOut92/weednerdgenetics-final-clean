@@ -1,4 +1,3 @@
-// components/Navbar.tsx
 "use client";
 
 import Link from "next/link";
@@ -9,7 +8,7 @@ export default function Navbar() {
   const { cart } = useCart();
 
   return (
-    <nav className="bg-gray-950/90 backdrop-blur-md text-white px-6 py-4 flex justify-between items-center shadow-lg">
+    <nav className="bg-gray-950/95 backdrop-blur-md text-white px-6 py-4 flex justify-between items-center shadow-lg border-b border-green-600">
       {/* Logo links */}
       <Link href="/" className="flex items-center gap-2">
         <img
@@ -17,7 +16,7 @@ export default function Navbar() {
           alt="WeedNerd Logo"
           className="h-10 w-auto"
         />
-        <span className="text-xl font-bold hidden sm:inline">
+        <span className="text-xl font-bold hidden sm:inline text-green-500">
           WeedNerdGenetics
         </span>
       </Link>
