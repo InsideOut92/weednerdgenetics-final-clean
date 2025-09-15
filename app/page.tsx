@@ -79,7 +79,11 @@ export default function Home() {
       <ProductCard
         key={p.id}
         product={p}
-        onHover={(enter) => setHoverImage(enter ? p.image : null)}
+        onHover={(img) => {
+          // Debugging (temporär): öffne devtools Console um zu sehen, ob diese Zeile läuft
+          // console.debug("hover:", p.id, img);
+          setHoverImage(img);
+        }}
       />
     ))}
   </div>
